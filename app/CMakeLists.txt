@@ -27,8 +27,7 @@ add_library(hotfix-art
     src/main/cpp/hotfix_art_5_0.cpp
     src/main/cpp/hotfix_art_5_1.cpp
     src/main/cpp/hotfix_art_6_0.cpp
-    #src/main/cpp/hotfix_art_7_0.cpp
-    )
+    src/main/cpp/hotfix_art_7_0.cpp)
 
 # Searches for a specified prebuilt library and stores the path as a
 # variable. Because system libraries are included in the search path by

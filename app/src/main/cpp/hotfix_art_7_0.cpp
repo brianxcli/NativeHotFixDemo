@@ -30,9 +30,13 @@ void replace_7_0(JNIEnv* env, jobject src, jobject dest) {
 //			reinterpret_cast<art::mirror::Class*>(dmeth->declaring_class_)->class_loader_; //for plugin classloader
     reinterpret_cast<art::mirror::Class*>(dmeth->declaring_class_)->clinit_thread_id_ =
             reinterpret_cast<art::mirror::Class*>(smeth->declaring_class_)->clinit_thread_id_;
+
+    // While Android Studio says that the static cast from int to Status is redundant,
+    // the C++ compiler doesn't think so. The build process fails without the cast.
     reinterpret_cast<art::mirror::Class*>(dmeth->declaring_class_)->status_ =
-            reinterpret_cast<art::mirror::Class*>(smeth->declaring_class_)->status_ -1;
-    //for reflection invoke
+            static_cast<art::mirror::Class::Status>(reinterpret_cast<art::mirror::Class*>(smeth->declaring_class_)->status_ -1);
+
+    // for reflection invoke
     reinterpret_cast<art::mirror::Class*>(dmeth->declaring_class_)->super_class_ = 0;
 
     smeth->declaring_class_ = dmeth->declaring_class_;

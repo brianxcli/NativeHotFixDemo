@@ -5,7 +5,7 @@ JNIEXPORT void JNICALL Java_brian_com_nativehotfixdemo_hotfix_HotfixManager_fixA
         (JNIEnv* env, jobject obj, jobject src, jobject des, jint version) {
     int versionCode = (int)version;
     if (versionCode > 23) {
-        // replace_7_0(env, src, des);
+        replace_7_0(env, src, des);
     } else if (versionCode > 22) {
         replace_6_0(env, src, des);
     } else if (versionCode > 21) {
@@ -21,7 +21,7 @@ JNIEXPORT void JNICALL Java_brian_com_nativehotfixdemo_hotfix_HotfixManager_setS
         (JNIEnv* env, jobject obj, jobject field, jint version) {
     int versionCode = (int)version;
     if (versionCode > 23) {
-        // setFieldFlag_7_0(env, field);
+        setFieldFlag_7_0(env, field);
     } else if (versionCode > 22) {
         setFieldFlag_6_0(env, field);
     } else if (versionCode > 21) {
