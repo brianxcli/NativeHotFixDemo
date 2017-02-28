@@ -25,10 +25,8 @@ import dalvik.system.DexClassLoader;
 
 public class MainActivity extends Activity implements View.OnClickListener {
     private static final int MSG_STOP_PROGRESS = 1;
-    private static final int MSG_SHOW_EXCEPTION = 2;
 
     private TextView mText;
-    private ProgressBar mProgress;
     private Button mCalculate;
     private Button mHotfix;
 
@@ -47,7 +45,6 @@ public class MainActivity extends Activity implements View.OnClickListener {
         setContentView(R.layout.activity_main);
 
         mText = (TextView) findViewById(R.id.progress_text);
-        mProgress = (ProgressBar) findViewById(R.id.progress);
         mCalculate = (Button) findViewById(R.id.calculate);
         mHotfix = (Button) findViewById(R.id.fix);
 
