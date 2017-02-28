@@ -33,6 +33,7 @@ void replace_7_0(JNIEnv* env, jobject src, jobject dest) {
 
     // While Android Studio says that the static cast from int to Status is redundant,
     // the C++ compiler doesn't think so. The build process fails without the cast.
+    // Xiaochen Li 01/Mar/2017
     reinterpret_cast<art::mirror::Class*>(dmeth->declaring_class_)->status_ =
             static_cast<art::mirror::Class::Status>(reinterpret_cast<art::mirror::Class*>(smeth->declaring_class_)->status_ -1);
 
